@@ -154,8 +154,7 @@ func NewHTTPServer(meter metric.Meter) HTTPServer {
 
 	var err error
 	server.requestBodySizeHistogram, err = httpconv.NewServerRequestBodySize(meter,
-		metric.WithExplicitBucketBoundaries(defaultByteHistogramBounds...),
-	)
+		metric.WithExplicitBucketBoundaries(defaultByteHistogramBounds...))
 	handleErr(err)
 
 	server.responseBodySizeHistogram, err = httpconv.NewServerResponseBodySize(meter,
